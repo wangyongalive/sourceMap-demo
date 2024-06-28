@@ -12,8 +12,10 @@ app.use(ElementPlus)
 app.use(createPinia())
 app.use(router)
 
+//
 app.config.errorHandler = (err: any, vm) => {
     const errorStack = ErrorStackParser.parse(err as Error)
+    console.log(errorStack) // 打印错误栈
     const jsError = {
         stack_frames: errorStack,
         message: err.message,
